@@ -1,16 +1,23 @@
 <template>
-    <div class="common-layout">
-      <el-container class="layout">
-        <el-header class="header">Header</el-header>
-        <el-container class="page">
-          <el-aside  class="aside">Aside</el-aside>
-          <el-main class="main">Main</el-main>
-        </el-container>
+  <div class="common-layout">
+    <el-container class="layout">
+      <el-header class="header">Header</el-header>
+      <el-container class="page">
+        <el-aside class="aside">
+          <Aside/>
+        </el-aside>
+        <el-main class="main">
+          <Main/>
+        </el-main>
       </el-container>
-    </div>
+    </el-container>
+  </div>
 </template>
 
 <script setup lang="ts">
+import Aside from "@/components/Aside/index.vue";
+import Main from "@/components/Main/index.vue"
+
 
 </script>
 
@@ -18,18 +25,23 @@
 .common-layout {
   flex: 1;
   display: flex;
-  .layout{
+
+  .layout {
     flex: 1;
-    .header{
+
+    .header {
       height: 50px;
-      background-color: yellow;
+
     }
+
     .page {
       display: flex;
+
       .aside {
         width: 200px;
-        background-color: red;
+
       }
+
       .main {
         flex: 1;
       }
