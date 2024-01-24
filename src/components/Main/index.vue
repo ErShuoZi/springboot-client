@@ -5,7 +5,8 @@ import {LoadFurnListRequest,
   updateFurnListRequest,
   searchByIdFurnListRequest,
   deleteById,
-  listByPage
+  listByPage,
+  listFurnsByConditionPage
 } from "@/api";
 import Msg from "@/components/baseUi/Message"
 import type { FormInstance, FormRules } from 'element-plus'
@@ -20,7 +21,7 @@ onMounted(()=> {
 
 
 const tableData= ref<any[]>([])
-const search: any = ""
+const search= ref("")
 
 const handleClick = (row: any) => {
   dialogVisible.value = true
@@ -49,7 +50,10 @@ const handleEdit = (row: any) => {
 }
 
 const handleSearch = () => {
-  console.log("search")
+  listFurnsByConditionPage({pageNum:pageNum,pageSize:pageSize,search:search.value}).then((res:any)=> {
+    tableData.value = res.data.records
+    total.value = res.data.total
+  })
 }
 
 const dialogVisible = ref(false)

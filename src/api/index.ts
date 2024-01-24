@@ -50,4 +50,15 @@ function listByPage(params:any):any {
         }
     })
 }
-export {SaveFurnRequest,LoadFurnListRequest,updateFurnListRequest,searchByIdFurnListRequest,deleteById,listByPage}
+
+function listFurnsByConditionPage(params:any):any {
+    return lsRequest.post({
+        url:`/listFurnsByConditionPage`,
+        params:{
+            pageNum:params.pageNum.value,
+            pageSize:params.pageSize.value,
+            search:params.search
+        }
+    })
+}
+export {SaveFurnRequest,LoadFurnListRequest,updateFurnListRequest,searchByIdFurnListRequest,deleteById,listByPage,listFurnsByConditionPage}
